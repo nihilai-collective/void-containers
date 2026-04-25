@@ -1,0 +1,128 @@
+﻿{
+  "version": 3,
+  "configurePresets": [
+    {
+      "installDir": "${sourceDir}/out",
+      "condition": {
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows",
+        "type": "equals"
+      },
+      "generator": "Ninja",
+      "hidden": true,
+      "name": "void-containers-Windows-Base"
+    },
+    {
+      "architecture": { "value": "x64", "strategy": "external" },
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" },
+      "inherits": "void-containers-Windows-Base",
+      "name": "void-containers-Windows-Release"
+    },
+    {
+      "architecture": { "value": "x64", "strategy": "external" },
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" },
+      "inherits": "void-containers-Windows-Base",
+      "name": "void-containers-Windows-Debug"
+    },
+    {
+      "architecture": { "value": "x64", "strategy": "external" },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "VC_UNIT_TESTS": "TRUE"
+      },
+      "inherits": "void-containers-Windows-Base",
+      "name": "void-containers-Windows-Release-Tests"
+    },
+    {
+      "architecture": { "value": "x64", "strategy": "external" },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "VC_UNIT_TESTS": "TRUE"
+      },
+      "inherits": "void-containers-Windows-Base",
+      "name": "void-containers-Windows-Debug-Tests"
+    },
+    {
+      "architecture": { "value": "x64", "strategy": "external" },
+      "cacheVariables": {
+        "VC_ASAN": "TRUE",
+        "CMAKE_BUILD_TYPE": "Release",
+        "VC_UNIT_TESTS": "TRUE"
+      },
+      "inherits": "void-containers-Windows-Base",
+      "name": "void-containers-Windows-Release-Asan"
+    },
+    {
+      "architecture": { "value": "x64", "strategy": "external" },
+      "cacheVariables": {
+        "VC_ASAN": "TRUE",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "VC_UNIT_TESTS": "TRUE"
+      },
+      "inherits": "void-containers-Windows-Base",
+      "name": "void-containers-Windows-Debug-Asan"
+    },
+    {
+      "architecture": { "value": "x64", "strategy": "external" },
+      "cacheVariables": {
+        "VC_ASAN": "TRUE",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "VC_UNIT_TESTS": "TRUE",
+        "VC_DETECT_CPU": "FALSE"
+      },
+      "inherits": "void-containers-Windows-Base",
+      "name": "void-containers-Windows-Debug-Asan-Fallback"
+    }
+  ],
+  "buildPresets": [
+    {
+      "configurePreset": "void-containers-Windows-Release",
+      "configuration": "Release",
+      "inheritConfigureEnvironment": true,
+      "name": "void-containers-Windows-Release",
+      "verbose": true
+    },
+    {
+      "configurePreset": "void-containers-Windows-Debug",
+      "configuration": "Debug",
+      "inheritConfigureEnvironment": true,
+      "name": "void-containers-Windows-Debug",
+      "verbose": true
+    },
+    {
+      "configurePreset": "void-containers-Windows-Release-Tests",
+      "configuration": "Release",
+      "inheritConfigureEnvironment": true,
+      "name": "void-containers-Windows-Release-Tests",
+      "verbose": true
+    },
+    {
+      "configurePreset": "void-containers-Windows-Debug-Tests",
+      "configuration": "Debug",
+      "inheritConfigureEnvironment": true,
+      "name": "void-containers-Windows-Debug-Tests",
+      "verbose": true
+    },
+    {
+      "configurePreset": "void-containers-Windows-Release-Asan",
+      "configuration": "Release",
+      "inheritConfigureEnvironment": true,
+      "name": "void-containers-Windows-Release-Asan",
+      "verbose": true
+    },
+    {
+      "configurePreset": "void-containers-Windows-Debug-Asan",
+      "configuration": "Debug",
+      "inheritConfigureEnvironment": true,
+      "name": "void-containers-Windows-Debug-Asan",
+      "verbose": true
+    },
+    {
+      "configurePreset": "void-containers-Windows-Debug-Asan-Fallback",
+      "configuration": "Debug",
+      "inheritConfigureEnvironment": true,
+      "name": "void-containers-Windows-Debug-Asan-Fallback",
+      "verbose": true
+    }
+  ]
+}

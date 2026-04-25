@@ -1,0 +1,31 @@
+/*
+ * SPDX-License-Identifier: MIT
+ * Copyright (c) 2026 Nihilai Collective Corp
+ * https://github.com/nihilai-collective/void-containers
+ * include/void-containers-incl/simd/vc_cpu_properties.hpp
+ */
+#pragma once
+
+#include <void-containers-incl/config.hpp>
+
+#if !defined(VC_CPU_ALIGNMENT)
+	#define VC_CPU_ALIGNMENT 32
+#endif
+
+namespace void_containers::internal {
+
+	enum class cpu_property_types : uint64_t {
+		alignment,
+		arg_alignment,
+	};
+
+	struct cpu_properties {
+	  public:
+		static constexpr uint64_t values[]{ VC_CPU_ALIGNMENT, 64ULL };
+
+		static consteval uint64_t get_value(cpu_property_types index) {
+			return values[static_cast<uint64_t>(index)];
+		}
+	};
+
+}
