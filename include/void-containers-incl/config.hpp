@@ -47,7 +47,8 @@ namespace void_containers {
 
 	template<typename... arg_types> struct banned_reinterpret_cast {
 		static_assert(sizeof...(arg_types) == 0,
-			"Sorry, but reinterpret_cast is banned in this library! Only use our public-facing include <void-containers> in your code! Or, if you're inside our own headers, remove "
+			"Sorry, but reinterpret_cast is banned in this library! Only use our public-facing include <void-containers> in your code! Or, if you're inside our own headers, "
+			"remove "
 			"the std library include you just added and add it to config.hpp.");
 	};
 

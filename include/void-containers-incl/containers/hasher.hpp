@@ -42,7 +42,7 @@ namespace void_containers {
 		return static_cast<uint64_t>(product) ^ static_cast<uint64_t>(product >> 64U);
 #endif
 	}
-	 
+
 	template<string_types key_type_newer, uint64_t seed_new> struct rt_key_hasher<key_type_newer, seed_new> {
 		static constexpr uint64_t seed{ seed_new };
 
